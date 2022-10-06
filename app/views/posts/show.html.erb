@@ -2,14 +2,14 @@
 
 <h3><%= @post.title %></h3>
 
-<h5>
+<h6>
   <strong>Summary:</strong>
   <%= @post.summary %>
-</h5>
+</h6>
 
 <p>
   <%# <strong>Content:</strong> %>
-  <%= @post.content %>
+  <%= raw @post.format %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
