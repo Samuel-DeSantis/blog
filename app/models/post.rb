@@ -11,6 +11,9 @@ class Post < ApplicationRecord
   end
 
   def code
+    paragraphs = self.content.split("[code]")
+    paragraphs.collect! { |paragraph| "<code>" + paragraph + "</code>" }
+    paragraphs.join()
   end
 
   def bold
