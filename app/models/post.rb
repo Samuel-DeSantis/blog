@@ -15,12 +15,16 @@ class Post < ApplicationRecord
         close: "</u>"
       },
       "[bq]": {
-        open: "<blockquote class='blockquote'>",
+        open: "<blockquote class='ml-2'>",
         close: "</blockquote>"
       },
       "[author]": {
         open: "<figcaption class='blockquote-footer'>",
         close: "</figcaption>"
+      },
+      "[abbr]": {
+        open: "<p><abbr class='initialism'>",
+        close: "</abbr></p>"
       },
       "[br]": "<br>"
     }
