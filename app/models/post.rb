@@ -41,7 +41,6 @@ class Post < ApplicationRecord
     self.content
   end
 
-
           # effects = [
     #   method(:line_break), 
     #   method(:code), 
@@ -55,22 +54,9 @@ class Post < ApplicationRecord
     # content = line_break(content)
     # content = bold(content)
     # content = underline(content)
-  def line_break (content)
-    parse = content.split("[br]")
-    parse.collect! { |text| wrap_p_tag(text) + "</br>" }
-    parse.join()
-  end
 
   def code (content)
     between(content, "[code]", method(:wrap_code_tag))
-  end
-
-  def bold (content)
-    between(content, "[b]", method(:wrap_bold_tag))
-  end
-
-  def underline (content)
-    between(content, "[u]", method(:wrap_underline_tag))
   end
 
   def between (content, tag, fx)
@@ -88,32 +74,4 @@ class Post < ApplicationRecord
     end
   end
   
-  def html_wrap (text, tag)
-    add_carrots(tag) + text + add_carrots(tag)
-  end
-
-  def wrap_p_tag (text)
-    "<p>" + text + "</p>"
-  end
-
-  def wrap_code_tag (text)
-    "<code>" + text + "</code>"
-  end
-
-  def wrap_bold_tag (text)
-    "<b>" + text + "</b>"
-  end
-
-  def wrap_underline_tag (text)
-    "<u>" + text + "</u>"
-  end
-
-  def add_brackets (tag)
-    "[" + tag + "]"
-  end
-
-  def add_carrots (tag)
-    "<" + tag + ">"
-  end
-
 end
